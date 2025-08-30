@@ -495,7 +495,9 @@ export const BotBubble = (props: Props) => {
         {props.message.sourceDocuments && props.message.sourceDocuments.length && (
           <>
             <Show when={props.sourceDocsTitle}>
-              <span class="px-2 py-[10px]" style={{ 'font-size': '11px' }}>{props.sourceDocsTitle}</span>
+              <span class="px-2 py-[10px]" style={{ 'font-size': '11px' }}>
+                {props.sourceDocsTitle}
+              </span>
             </Show>
             <div style={{ display: 'flex', 'flex-direction': 'row', width: '100%', 'flex-wrap': 'wrap' }}>
               <For each={[...removeDuplicateURL(props.message)]}>
@@ -518,7 +520,7 @@ export const BotBubble = (props: Props) => {
                       metadata={URL ? URL.pathname : src.pageContent}
                       onSourceClick={() => {
                         if (URL) {
-                          window.open('/admin/managment-processes/edit-managment-process/' + src.metadata.source, '_blank');
+                          window.open('/admin/managment-processes/edit-managment-process/' + src.metadata.entityId, '_blank');
                         } else {
                           props.handleSourceDocumentsClick(src);
                         }
