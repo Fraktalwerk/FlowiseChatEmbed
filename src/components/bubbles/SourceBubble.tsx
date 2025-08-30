@@ -17,13 +17,13 @@ export const SourceBubble = (props: Props) => (
         style={{
           width: 'max-content',
           'max-width': '180px',
-          'font-size': '13px',
+          'font-size': '12px',
           'border-radius': '15px',
           cursor: 'pointer',
           'text-overflow': 'ellipsis',
           overflow: 'hidden',
           'white-space': 'nowrap',
-          'background-color': '#ddd',
+          'background-color': '#E8E8E8',
         }}
       >
         {props.pageContent}
