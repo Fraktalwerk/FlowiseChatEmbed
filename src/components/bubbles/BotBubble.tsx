@@ -501,10 +501,19 @@ export const BotBubble = (props: Props) => {
               <For each={[...removeDuplicateURL(props.message)]}>
                 {(src) => {
                   const URL = isValidURL(src.metadata.source);
+                  let source;
+
+                  console.log('src', src);
+                  console.log('src.metadata', src.metadata);
+
+                  if (src.metadata.entityType && src.metadata.entityId) {
+                    source = `${src.metadata.entityType} with uuid: ${src.metadata.entityId}`;
+                  }
+
                   return (
                     <SourceBubble
                       pageContent={URL ? URL.pathname : src.pageContent}
-                      metadata={src.metadata.title ? src.metadata.title : URL ? URL.pathname : src.pageContent}
+                      metadata={source ? source : URL ? URL.pathname : src.pageContent}
                       onSourceClick={() => {
                         if (URL) {
                           window.open(src.metadata.source, '_blank');
