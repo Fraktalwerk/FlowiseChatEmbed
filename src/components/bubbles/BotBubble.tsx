@@ -504,7 +504,7 @@ export const BotBubble = (props: Props) => {
                   return (
                     <SourceBubble
                       pageContent={URL ? URL.pathname : src.pageContent}
-                      metadata={src.metadata}
+                      metadata={src.metadata.title ? src.metadata.title : URL ? URL.pathname : src.pageContent}
                       onSourceClick={() => {
                         if (URL) {
                           window.open(src.metadata.source, '_blank');
