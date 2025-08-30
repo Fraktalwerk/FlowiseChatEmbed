@@ -16,13 +16,14 @@ export const SourceBubble = (props: Props) => (
         data-testid="host-bubble"
         style={{
           width: 'max-content',
-          'max-width': '80px',
+          'max-width': '180px',
           'font-size': '13px',
           'border-radius': '15px',
           cursor: 'pointer',
           'text-overflow': 'ellipsis',
           overflow: 'hidden',
           'white-space': 'nowrap',
+          'background-color': '#ddd',
         }}
       >
         {props.pageContent}
