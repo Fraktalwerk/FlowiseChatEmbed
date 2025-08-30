@@ -516,7 +516,7 @@ export const BotBubble = (props: Props) => {
                       metadata={source ? source : URL ? URL.pathname : src.pageContent}
                       onSourceClick={() => {
                         if (URL) {
-                          window.open(src.metadata.source, '_blank');
+                          window.open("https://fraktalwerk.swiss", '_blank');
                         } else {
                           props.handleSourceDocumentsClick(src);
                         }
