@@ -507,6 +507,9 @@ export const BotBubble = (props: Props) => {
 
                   // https://gwtest.fraktalwerk.dev/admin/managment-processes/edit-managment-process/b3839522-17e5-4fec-8053-f6756d902f47
 
+                  console.log('props', props);
+                  console.log('props.message', props.message);
+
                   console.log('src', src);
                   console.log('src.metadata', src.metadata);
 
