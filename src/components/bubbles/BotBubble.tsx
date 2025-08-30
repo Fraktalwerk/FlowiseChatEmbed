@@ -503,6 +503,8 @@ export const BotBubble = (props: Props) => {
                   const URL = isValidURL(src.metadata.source);
                   let source;
 
+                  // https://gwtest.fraktalwerk.dev/admin/managment-processes/edit-managment-process/b3839522-17e5-4fec-8053-f6756d902f47
+
                   console.log('src', src);
                   console.log('src.metadata', src.metadata);
 
@@ -512,11 +514,11 @@ export const BotBubble = (props: Props) => {
 
                   return (
                     <SourceBubble
-                      pageContent={URL ? URL.pathname : src.pageContent}
-                      metadata={source ? source : URL ? URL.pathname : src.pageContent}
+                      pageContent={src.metadata.entityType}
+                      metadata={URL ? URL.pathname : src.pageContent}
                       onSourceClick={() => {
                         if (URL) {
-                          window.open("https://fraktalwerk.swiss", '_blank');
+                          window.open('/admin/managment-processes/edit-managment-process/' + src.metadata.source, '_blank');
                         } else {
                           props.handleSourceDocumentsClick(src);
                         }
