@@ -510,9 +510,7 @@ export const BotBubble = (props: Props) => {
                   console.log('src', src);
                   console.log('src.metadata', src.metadata);
 
-                  if (src.metadata.entityType && src.metadata.entityId) {
-                    source = `${src.metadata.entityType} with uuid: ${src.metadata.entityId}`;
-                  }
+                  // @TODO: update this piece of code
 
                   return (
                     <SourceBubble
