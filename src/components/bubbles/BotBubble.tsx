@@ -513,17 +513,20 @@ export const BotBubble = (props: Props) => {
                   console.log('src.metadata', src.metadata);
 
                   // @TODO: update this piece of code
-                  if(props.message.message == "Based on my knowledge, I don't know.") {
+                  if (props.message.message == "Based on my knowledge, I don't know.") {
                     // skip -> create empty component
                   }
 
                   return (
                     <SourceBubble
-                      pageContent={src.metadata.entityType.replace('-', ' ')}
+                      pageContent={src.metadata.entityType?.replace('-', ' ')}
                       metadata={URL ? URL.pathname : src.pageContent}
                       onSourceClick={() => {
                         if (URL) {
-                          window.open('https://gwtest.fraktalwerk.dev/admin/managment-processes/edit-managment-process/' + src.metadata.entityId, '_blank');
+                          window.open(
+                            'https://gwtest.fraktalwerk.dev/admin/managment-processes/edit-managment-process/' + src.metadata.entityId,
+                            '_blank',
+                          );
                         } else {
                           props.handleSourceDocumentsClick(src);
                         }
