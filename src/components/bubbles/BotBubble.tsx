@@ -506,20 +506,22 @@ export const BotBubble = (props: Props) => {
 
                   // https://gwtest.fraktalwerk.dev/admin/managment-processes/edit-managment-process/b3839522-17e5-4fec-8053-f6756d902f47
 
-                  console.log('props', props);
-                  console.log('props.message', props.message);
+                  // console.log('props', props);
+                  // console.log('props.message', props.message);
+                  //
+                  // console.log('src', src);
+                  // console.log('src.metadata', src.metadata);
+                  //
+                  // // @TODO: update this piece of code
+                  // if (props.message.message == "Based on my knowledge, I don't know.") {
+                  //   // skip -> create empty component
+                  // }
 
-                  console.log('src', src);
-                  console.log('src.metadata', src.metadata);
-
-                  // @TODO: update this piece of code
-                  if (props.message.message == "Based on my knowledge, I don't know.") {
-                    // skip -> create empty component
-                  }
+                  const content = src.metadata?.entityType?.replace('-', ' ') || '';
 
                   return (
                     <SourceBubble
-                      pageContent={src.metadata?.entityType?.replace('-', ' ')}
+                      pageContent={content}
                       metadata={URL ? URL.pathname : src.pageContent}
                       onSourceClick={() => {
                         if (URL) {
