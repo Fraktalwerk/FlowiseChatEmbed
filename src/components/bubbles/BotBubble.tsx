@@ -519,12 +519,12 @@ export const BotBubble = (props: Props) => {
 
                   return (
                     <SourceBubble
-                      pageContent={src.metadata.entityType?.replace('-', ' ')}
+                      pageContent={src.metadata?.entityType?.replace('-', ' ')}
                       metadata={URL ? URL.pathname : src.pageContent}
                       onSourceClick={() => {
                         if (URL) {
                           window.open(
-                            'https://gwtest.fraktalwerk.dev/admin/managment-processes/edit-managment-process/' + src.metadata.entityId,
+                            'https://gwtest.fraktalwerk.dev/admin/managment-processes/edit-managment-process/' + src.metadata?.entityId,
                             '_blank',
                           );
                         } else {
