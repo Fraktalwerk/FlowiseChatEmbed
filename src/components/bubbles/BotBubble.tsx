@@ -503,7 +503,6 @@ export const BotBubble = (props: Props) => {
               <For each={[...removeDuplicateURL(props.message)]}>
                 {(src) => {
                   const URL = isValidURL(src.metadata.source);
-                  let source;
 
                   // https://gwtest.fraktalwerk.dev/admin/managment-processes/edit-managment-process/b3839522-17e5-4fec-8053-f6756d902f47
 
@@ -514,6 +513,9 @@ export const BotBubble = (props: Props) => {
                   console.log('src.metadata', src.metadata);
 
                   // @TODO: update this piece of code
+                  if(props.message.message == "Based on my knowledge, I don't know.") {
+                    // skip -> create empty component
+                  }
 
                   return (
                     <SourceBubble
@@ -521,7 +523,7 @@ export const BotBubble = (props: Props) => {
                       metadata={URL ? URL.pathname : src.pageContent}
                       onSourceClick={() => {
                         if (URL) {
-                          window.open('/admin/managment-processes/edit-managment-process/' + src.metadata.entityId, '_blank');
+                          window.open('https://gwtest.fraktalwerk.dev/admin/managment-processes/edit-managment-process/' + src.metadata.entityId, '_blank');
                         } else {
                           props.handleSourceDocumentsClick(src);
                         }

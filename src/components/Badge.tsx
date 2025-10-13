@@ -46,6 +46,7 @@ export const Badge = (props: Props) => {
           style={{
             color: props.footer?.textColor ?? props.poweredByTextColor ?? defaultTextColor,
             'background-color': props.badgeBackgroundColor ?? '#ffffff',
+            'font-size': '11px !important',
           }}
         >
           {props.footer?.text ?? 'Powered by'}
