@@ -517,24 +517,26 @@ export const BotBubble = (props: Props) => {
                   //   // skip -> create empty component
                   // }
 
-                  const content = src.metadata?.entityType?.replace('-', ' ') || '';
+                  if (src.metadata?.entityType) {
+                    const content = src.metadata?.entityType?.replace('-', ' ') || '';
 
-                  return (
-                    <SourceBubble
-                      pageContent={content}
-                      metadata={URL ? URL.pathname : src.pageContent}
-                      onSourceClick={() => {
-                        if (URL) {
-                          window.open(
-                            'https://gwtest.fraktalwerk.dev/admin/managment-processes/edit-managment-process/' + src.metadata?.entityId,
-                            '_blank',
-                          );
-                        } else {
-                          props.handleSourceDocumentsClick(src);
-                        }
-                      }}
-                    />
-                  );
+                    return (
+                      <SourceBubble
+                        pageContent={content}
+                        metadata={URL ? URL.pathname : src.pageContent}
+                        onSourceClick={() => {
+                          if (URL) {
+                            window.open(
+                              'https://gwtest.fraktalwerk.dev/admin/managment-processes/edit-managment-process/' + src.metadata?.entityId,
+                              '_blank',
+                            );
+                          } else {
+                            props.handleSourceDocumentsClick(src);
+                          }
+                        }}
+                      />
+                    );
+                  }
                 }}
               </For>
             </div>
