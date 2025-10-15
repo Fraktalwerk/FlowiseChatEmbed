@@ -518,13 +518,38 @@ export const BotBubble = (props: Props) => {
                   // }
 
                   const url = new URL(import.meta.url);
-                  console.log('url', url);
-
                   const adminBaseUrl = url.searchParams.get('adminBaseUrl') || '';
-                  console.log('adminBaseUrl', adminBaseUrl);
 
                   if (src.metadata && src.metadata?.entityType) {
                     const content = src.metadata?.entityType?.replace('-', ' ') || '';
+                    const entityType = src.metadata?.entityType;
+                    const entityId = src.metadata?.entityId;
+
+                    let finalUrl: string;
+
+                    switch (entityType) {
+                      case 'management-process':
+                        finalUrl = `${adminBaseUrl}/admin/managment-processes/edit-managment-process/${entityId}`;
+                        break;
+                      case 'main-process':
+                        finalUrl = `${adminBaseUrl}/admin/main-processes/edit-main-process/${entityId}`;
+                        break;
+                      case 'supporting-process':
+                        finalUrl = `${adminBaseUrl}/admin/supporting-processes/edit-supporting-process/${entityId}`;
+                        break;
+                      case 'subprocess':
+                        finalUrl = `${adminBaseUrl}/admin/subprocesses/edit-subprocess/${entityId}`;
+                        break;
+                      case 'medium':
+                        finalUrl = `${adminBaseUrl}/admin/media`;
+                        break;
+                      case 'resource':
+                        finalUrl = `${adminBaseUrl}/admin/resources/edit-resource/${entityId}`;
+                        break;
+                      case 'context':
+                        finalUrl = `${adminBaseUrl}/admin/context/edit-context/${entityId}`;
+                        break;
+                    }
 
                     return (
                       <SourceBubble
@@ -532,10 +557,7 @@ export const BotBubble = (props: Props) => {
                         metadata={sourceURL ? sourceURL.pathname : src.pageContent}
                         onSourceClick={() => {
                           if (sourceURL) {
-                            window.open(
-                              'https://gwtest.fraktalwerk.dev/admin/managment-processes/edit-managment-process/' + src.metadata?.entityId,
-                              '_blank',
-                            );
+                            window.open(finalUrl, '_blank');
                           } else {
                             props.handleSourceDocumentsClick(src);
                           }
