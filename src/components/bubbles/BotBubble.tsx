@@ -525,7 +525,7 @@ export const BotBubble = (props: Props) => {
                     const entityType = src.metadata?.entityType;
                     const entityId = src.metadata?.entityId;
 
-                    let finalUrl: string;
+                    let finalUrl: string | null = null;
 
                     switch (entityType) {
                       case 'management-process':
@@ -555,9 +555,12 @@ export const BotBubble = (props: Props) => {
                       <SourceBubble
                         pageContent={content}
                         metadata={sourceURL ? sourceURL.pathname : src.pageContent}
+                        dataUrl={finalUrl ? finalUrl : ''}
                         onSourceClick={() => {
                           if (sourceURL) {
-                            window.open(finalUrl, '_blank');
+                            if (finalUrl) {
+                              window.open(finalUrl, '_blank');
+                            }
                           } else {
                             props.handleSourceDocumentsClick(src);
                           }

@@ -1,8 +1,10 @@
 type Props = {
-  pageContent: string;
-  metadata: object;
-  onSourceClick?: () => void;
+  pageContent: string,
+  metadata: object,
+  onSourceClick?: () => void,
+  dataUrl?: string
 };
+
 export const SourceBubble = (props: Props) => (
   <>
     <div
@@ -10,6 +12,7 @@ export const SourceBubble = (props: Props) => (
       data-modal-toggle="defaultModal"
       class="flex justify-start mb-2 items-start animate-fade-in host-container hover:brightness-90 active:brightness-75"
       onClick={() => props.onSourceClick?.()}
+      data-url={props.dataUrl}
     >
       <span
         class="px-2 py-1 ml-1 whitespace-pre-wrap max-w-full chatbot-host-bubble"
