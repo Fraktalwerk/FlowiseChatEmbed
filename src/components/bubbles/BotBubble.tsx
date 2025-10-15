@@ -502,7 +502,7 @@ export const BotBubble = (props: Props) => {
             <div style={{ display: 'flex', 'flex-direction': 'row', width: '100%', 'flex-wrap': 'wrap' }}>
               <For each={[...removeDuplicateURL(props.message)]}>
                 {(src) => {
-                  const URL = isValidURL(src.metadata.source);
+                  const sourceURL = isValidURL(src.metadata.source);
 
                   // https://gwtest.fraktalwerk.dev/admin/managment-processes/edit-managment-process/b3839522-17e5-4fec-8053-f6756d902f47
 
@@ -517,15 +517,21 @@ export const BotBubble = (props: Props) => {
                   //   // skip -> create empty component
                   // }
 
+                  const url = new URL(import.meta.url);
+                  console.log('url', url);
+
+                  const adminBaseUrl = url.searchParams.get('adminBaseUrl') || '';
+                  console.log('adminBaseUrl', adminBaseUrl);
+
                   if (src.metadata && src.metadata?.entityType) {
                     const content = src.metadata?.entityType?.replace('-', ' ') || '';
 
                     return (
                       <SourceBubble
                         pageContent={content}
-                        metadata={URL ? URL.pathname : src.pageContent}
+                        metadata={sourceURL ? sourceURL.pathname : src.pageContent}
                         onSourceClick={() => {
-                          if (URL) {
+                          if (sourceURL) {
                             window.open(
                               'https://gwtest.fraktalwerk.dev/admin/managment-processes/edit-managment-process/' + src.metadata?.entityId,
                               '_blank',
