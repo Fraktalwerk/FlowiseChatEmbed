@@ -517,7 +517,7 @@ export const BotBubble = (props: Props) => {
                   //   // skip -> create empty component
                   // }
 
-                  if (src.metadata?.entityType) {
+                  if (src.metadata && src.metadata?.entityType) {
                     const content = src.metadata?.entityType?.replace('-', ' ') || '';
 
                     return (
