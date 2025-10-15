@@ -533,25 +533,25 @@ export const BotBubble = (props: Props) => {
 
                     switch (entityType) {
                       case 'management-process':
-                        finalUrl = `${adminBaseUrl}/admin/managment-processes/edit-managment-process/${entityId}`;
+                        finalUrl = `${adminBaseUrl}/managment-processes/edit-managment-process/${entityId}`;
                         break;
                       case 'main-process':
-                        finalUrl = `${adminBaseUrl}/admin/main-processes/edit-main-process/${entityId}`;
+                        finalUrl = `${adminBaseUrl}/main-processes/edit-main-process/${entityId}`;
                         break;
                       case 'supporting-process':
-                        finalUrl = `${adminBaseUrl}/admin/supporting-processes/edit-supporting-process/${entityId}`;
+                        finalUrl = `${adminBaseUrl}/supporting-processes/edit-supporting-process/${entityId}`;
                         break;
                       case 'subprocess':
-                        finalUrl = `${adminBaseUrl}/admin/subprocesses/edit-subprocess/${entityId}`;
+                        finalUrl = `${adminBaseUrl}/subprocesses/edit-subprocess/${entityId}`;
                         break;
                       case 'medium':
-                        finalUrl = `${adminBaseUrl}/admin/media`;
+                        finalUrl = `${adminBaseUrl}/media`;
                         break;
                       case 'resource':
-                        finalUrl = `${adminBaseUrl}/admin/resources/edit-resource/${entityId}`;
+                        finalUrl = `${adminBaseUrl}/resources/edit-resource/${entityId}`;
                         break;
                       case 'context':
-                        finalUrl = `${adminBaseUrl}/admin/context/edit-context/${entityId}`;
+                        finalUrl = `${adminBaseUrl}/context/edit-context/${entityId}`;
                         break;
                     }
 
