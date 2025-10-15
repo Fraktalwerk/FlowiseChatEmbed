@@ -525,6 +525,10 @@ export const BotBubble = (props: Props) => {
                     const entityType = src.metadata?.entityType;
                     const entityId = src.metadata?.entityId;
 
+                    console.log('content', content);
+                    console.log('entityType', entityType);
+                    console.log('entityId', entityId);
+
                     let finalUrl: string | null = null;
 
                     switch (entityType) {
@@ -550,6 +554,8 @@ export const BotBubble = (props: Props) => {
                         finalUrl = `${adminBaseUrl}/admin/context/edit-context/${entityId}`;
                         break;
                     }
+
+                    console.log('finalUrl', finalUrl);
 
                     return (
                       <SourceBubble
