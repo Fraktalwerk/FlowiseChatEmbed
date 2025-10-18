@@ -565,7 +565,7 @@ export const BotBubble = (props: Props) => {
                         onSourceClick={() => {
                           if (sourceURL) {
                             if (finalUrl) {
-                              window.open(finalUrl, 'self');
+                              window.open(finalUrl, '_self');
                             }
                           } else {
                             props.handleSourceDocumentsClick(src);
